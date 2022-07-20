@@ -1,0 +1,62 @@
+/* Design elements for pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+  
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+  
+.pagination a:hover:not(.active) {
+      background-color: #ddd;
+}
+
+mark {
+    background-color: orange;
+    font-weight: bold;
+}
+
+/* Design elements for tags */
+h2 {
+    text-align: center;
+    font: 24px;
+}
+
+p {
+    text-align: center;
+    font: 18px;
+}
+
+
+/* D3 Chart */
+
+path { 
+      stroke: black;
+      stroke-width: 1;
+      fill: none;
+  }
+  
+.axis path,
+.axis line {
+    fill: none;
+    stroke:black;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+}
+
+svg {
+    display: block;
+    margin: 0 auto;
+}
+
+body { font: 12px;}
