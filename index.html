@@ -20,7 +20,7 @@
 <p>The bar chart below shows the <mark>starting median salaries</mark> for people from different majors in their undergraduate studies.</p>
 <p><mark>Hover over the bar</mark> to explore the data associated with each major</p>
 
-<svg width="3500" height="600"></svg>
+<svg width="1500" height="600"></svg>
 <script>
 
     var svg = d3.select("svg"),
@@ -42,27 +42,27 @@
         xScale.domain(data.map(function(d) { return d.major; }));
         yScale.domain([0, d3.max(data, function(d) { return d.starting; })]);
 
+         g.append("g")
+        .attr("class", "axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(xScale))
+        //select all text labels in the axis, then position + rotate
+        .selectAll("text")  
+        .style("text-anchor", "end")
+        .attr("dx", "-1em")
+        .attr("dy", "-0.5em")
+        .attr("transform", "rotate(-65)");
+
+      
         g.append("g")
          .attr("transform", "translate(0," + height + ")")
-         .call(d3.axisBottom(xScale))
+         //.call(d3.axisBottom(xScale))
          .append("text")
          .attr("y", 0)
-         .attr("x", 3300)
+         .attr("x", 1300)
          .attr("text-anchor", "end")
          .attr("stroke", "black")
          .text("major");
-/*
-         g.append("g")
-    .attr("class", "axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(d3.axisBottom(xScale))
-    //select all text labels in the axis, then position + rotate
-    .selectAll("text")  
-      .style("text-anchor", "end")
-      .attr("dx", "-1em")
-      .attr("dy", "-0.5em")
-      .attr("transform", "rotate(-90)");
-*/
 
         g.append("g")
          .call(d3.axisLeft(yScale).tickFormat(function(d){
@@ -137,7 +137,7 @@
         
         },
         color: ["black"],
-        x: 980,
+        x: 450,
         y: 120,
         dy: -50,
         dx: 100
