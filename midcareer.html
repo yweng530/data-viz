@@ -56,7 +56,7 @@
          //.call(d3.axisBottom(xScale))
          .append("text")
          .attr("y", 0)
-         .attr("x", 1300)
+         .attr("x", 1310)
          .attr("text-anchor", "end")
          .attr("stroke", "black")
          .text("major");
@@ -90,8 +90,6 @@
     function onMouseOver(d, i) {
         d3.select(this).attr('class', 'highlight');
         d3.select(this)
-          .transition()     // adds animation
-          .duration(400)
           .attr('width', xScale.bandwidth() + 5)
           .attr("y", function(d) { return yScale(d.midcareer) - 10; })
           .attr("height", function(d) { return height - yScale(d.midcareer) + 10; });
@@ -105,7 +103,7 @@
              return yScale(d.midcareer) - 15;
          })
          .text(function() {
-             return [ '$' +d.midcareer];  // Value of the text
+             return [ d.major + ': $' +d.midcareer];  // Value of the text
          });
     }
 
@@ -114,8 +112,6 @@
         // use the text label class to remove label on mouseout
         d3.select(this).attr('class', 'bar');
         d3.select(this)
-          .transition()     // adds animation
-          .duration(400)
           .attr('width', xScale.bandwidth())
           .attr("y", function(d) { return yScale(d.midcareer); })
           .attr("height", function(d) { return height - yScale(d.midcareer); });
